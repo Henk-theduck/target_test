@@ -1,0 +1,10 @@
+SELECT 
+pessoa.id as codigo,
+pessoa.nome as razao_social,
+tipo_telefone.tipo as tipo_telefone,
+telefone.numero as numero_telefone 
+FROM pessoa
+JOIN estado ON estado.id = pessoa.estado_id
+LEFT JOIN telefone ON telefone.pessoa_id = pessoa.id
+LEFT JOIN tipo_telefone ON tipo_telefone.id = telefone.tipo_telefone_id
+WHERE estado.sigla = 'SP'
